@@ -27,6 +27,9 @@ posts = Post.all
   )
 end
 
+suffer_techno = Post.find_or_create_by(title: "Techno Interests Me", body: "Suffer the rave")
+all_night_long = Comment.find_or_create_by(body: "All night long", post: suffer_techno)
+
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
