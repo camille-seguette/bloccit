@@ -57,7 +57,7 @@ describe "GET show" do
   end
 
   it "renders the #show view" do
-    get :show, {id: my_post.id}
+    get :show, {id: my_post.id }
     expect(response).to render_template :show
   end
 
