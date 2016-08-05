@@ -2,15 +2,7 @@ require 'rails_helper'
 include RandomData
 
 RSpec.describe QuestionsController, type: :controller do
-  let (:my_question) do
-    Question.create(
-    id: 1,
-    title: RandomData.random_sentence,
-    body: RandomData.random_paragraph,
-    resolved: false
-    )
-  end
-end
+let(:my_question) { Question.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph, resolved: true) }
 
   describe "GET #index" do
     it "returns http success" do
@@ -20,7 +12,7 @@ end
 
     it "assigns my_question to @question" do
       get :index
-      expect(assigns(:questions).to eq [my_question])
+      expect(assigns(:questions)).to eq([my_question])
     end
   end
 
@@ -32,7 +24,7 @@ end
 
     it "renders the #new view" do
       get :new
-      expect(reponse).to render_template :new
+      expect(response).to render_template :new
     end
 
     it "instantiates @question" do
@@ -120,3 +112,4 @@ end
       expect(response).to redirect_to questions_path
     end
   end
+end
