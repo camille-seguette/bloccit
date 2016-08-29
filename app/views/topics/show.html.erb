@@ -11,6 +11,13 @@
       <br />
       <%= @topic.description %>
     </p>
+    <div>
+      <h3>Comments</h3>
+      <%= render @topic.comments %>
+    </div>
+    <% if current_user %>
+      <%= render 'comments/form', comment: Comment.new, topic: @topic %>
+    <% end %>
     <% @topic.posts.each do |post| %>
       <div class="media">
         <div class="media-body">
@@ -26,6 +33,7 @@
       </div>
     <% end %>
   </div>
+
   <% if current_user %>
     <div class="col-md-4">
       <%= link_to "New Post", new_topic_post_path(@topic), class: 'btn btn-success' %>
