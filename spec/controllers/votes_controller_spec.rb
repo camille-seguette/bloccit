@@ -2,7 +2,7 @@ require 'rails_helper'
 include SessionsHelper
 
 RSpec.describe VotesController, type: :controller do
-  let(:my_vote) { Vote.create!(value: 1) }
+  let(:my_vote) { create(:vote) }
   let(:my_topic) { create(:topic) }
   let(:my_user) { create(:user) }
   let(:other_user) { create(:user) }
