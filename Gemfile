@@ -19,6 +19,7 @@
      gem 'shoulda'
      gem 'pry-rails'
      gem 'factory_girl_rails', '~> 4.0'
+     gem 'responders', '~> 2.0'
    end
 
    # Use SCSS for stylesheets
